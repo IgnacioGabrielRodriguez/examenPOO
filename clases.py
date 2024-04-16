@@ -1,3 +1,6 @@
+import fileinput
+import eventos
+
 class Eventos:
 
     def __init__(self, fecha, descripcion):
@@ -20,7 +23,7 @@ class TrabajosPracticos(Eventos):
         self.materia = materia
     
     def __str__(self) -> str:
-        return f"Trabajo practico de {self.materia}. {self.descripcion}. Fecha: {self.fecha}"
+        return f"Trabajo practico de {self.materia}. {self.descripcion}. Fecha de entrega: {self.fecha}"
 
 class ReunionDeEstudio(Eventos):
 
@@ -33,6 +36,22 @@ class ReunionDeEstudio(Eventos):
 class Agenda:
 
     def __init__(self):
-        pass
+        self.id = 0
+
+    def agregarExamen(self,fecha,descripcion,materia):
+        file = open("eventos.py","a")
+        file.write(f"Ex{self.id} = Examenes('{fecha}', '{descripcion}', '{materia}')" + "\n")
+        eventos.events.append(self.id)
+        self.id += 1
+        file.close()
     
+    def visualizarEvento(self):
+        for line in fileinput.input("eventos.py"):
+            print(line,end="")
     
+agendaEscolar = Agenda()
+agendaEscolar.agregarExamen("21 de abril","w","Matematica")
+agendaEscolar.agregarExamen("21 de abril","w","Matematica")
+agendaEscolar.visualizarEvento()
+
+print("FIN DEL PROGRAMA")
