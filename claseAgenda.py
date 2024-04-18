@@ -42,6 +42,8 @@ class Agenda:
             #        else:
             #            print("No existe ningun objeto")
             print(line,end="")
+
+            # Lo que queria hacer es que lea las ids linea por linea y si coincidian con el archivo de las varables, que se printee el metodo str
     
 agendaEscolar = Agenda()
 agendaEscolar.agregarExamen("21 de abril","w","Matematica")
