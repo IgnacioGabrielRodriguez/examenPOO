@@ -10,7 +10,7 @@ class Examenes(Eventos):
         super().__init__(fecha, descripcion)
         self.materia = materia
 
-    def __str__(self) -> str:
+    def str(self) -> str:
         return f"Examen de {self.materia}. {self.descripcion}. Fecha: {self.fecha}"
 
 class TrabajosPracticos(Eventos):
